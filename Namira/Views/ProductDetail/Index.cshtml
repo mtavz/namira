@@ -74,170 +74,166 @@
                 </div> <!-- end gallery thumbs -->
 
             </div> <!-- end col img slider -->
+            @foreach (var item in ViewBag.DataItem)
+            {
+                <div class="col-md-6 product-single">
+                    <h1 class="product-single__title uppercase">@item.Code</h1>
 
-            <div class="col-md-6 product-single">
-                <h1 class="product-single__title uppercase">Casual jacket</h1>
+                    <div class="rating">
+                        <a href="#">3 Reviews</a>
+                    </div>
 
-                <div class="rating">
-                    <a href="#">3 Reviews</a>
-                </div>
+                    <span class="product-single__price">
+                        <ins>
+                            <span class="amount">$17.99</span>
+                        </ins>
+                        <del>
+                            <span>$30.00</span>
+                        </del>
+                    </span>
 
-                <span class="product-single__price">
-                    <ins>
-                        <span class="amount">$17.99</span>
-                    </ins>
-                    <del>
-                        <span>$30.00</span>
-                    </del>
-                </span>
-
-                <label >Số sản phẩm trong kho: <span>0</span></label>
-
-                <div class="colors clearfix">
-                    <span class="colors__label">Color: <span class="colors__label-selected">Fadaed Blue</span></span>
-                    <a href="#" class="colors__item colors__item--selected blue"></a>
-                    <a href="#" class="colors__item black"></a>
-                    <a href="#" class="colors__item pink"></a>
-                </div>
-
-                <div class="size-quantity clearfix">
-                    <div class="size">
-                        <label>Size</label>
-                        <select name="size" id="size__select" class="size__select">
-                            <option value="xs">XS</option>
-                            <option value="s">S</option>
+                    <div class="colors clearfix">
+                        <label>Màu sắc</label>
+                        <br />
+                        <select class="col-md-6" name="color" id="color__select">
+                            <option value="xs">Xanh lá mạ</option>
+                            <option value="s">Vàng óng</option>
                             <option value="m">M</option>
                             <option value="l">L</option>
                             <option value="xl">XL</option>
                         </select>
                     </div>
 
-                    <div class="quantity">
-                        <label>Quantity</label>
-                        <select name="quantity" id="quantity__select" class="quantity__select">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </div>
-                </div>
+                    <div class="size-quantity clearfix">
+                        <div class="size">
+                            <label>Size</label>
+                            <select name="size" id="size__select" class="size__select">
+                                <option value="xs">XS</option>
+                                <option value="s">S</option>
+                                <option value="m">M</option>
+                                <option value="l">L</option>
+                                <option value="xl">XL</option>
+                            </select>
+                        </div>
 
-                <div class="row row-10 product-single__actions clearfix">
-                    <div class="col">
-                        <a href="#" class="btn btn-lg btn-color product-single__add-to-cart">
-                            <i class="ui-bag"></i>
-                            <span>Add to Cart</span>
-                        </a>
+                        <div class="quantity">
+                            <label>Quantity</label>
+                            <select name="quantity" id="quantity__select" class="quantity__select">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="col">
-                        <a href="#" class="btn btn-lg btn-dark product-single__add-to-wishlist">
-                            <i class="ui-heart"></i>
-                            <span>Wishlist</span>
-                        </a>
-                    </div>
-                </div>
 
-                <div class="product_meta">
-                    <ul>
-                        <li>
-                            <span class="product-code">Product Code: <span>111763</span></span>
-                        </li>
-                        <li>
-                            <span class="product-material">Material: <span>Cotton 100%</span></span>
-                        </li>
-                        <li>
-                            <span class="product-country">Country: <span>Made in Canada</span></span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Accordion -->
-                <div class="accordion mb-50" id="accordion">
-                    <div class="accordion__panel">
-                        <div class="accordion__heading" id="headingOne">
-                            <a data-toggle="collapse" href="#collapseOne" class="accordion__link accordion--is-open" aria-expanded="true" aria-controls="collapseOne">
-                                Description<span class="accordion__toggle">&nbsp;</span>
+                    <div class="row row-10 product-single__actions clearfix">
+                        <div class="col">
+                            <a href="#" class="btn btn-lg btn-color product-single__add-to-cart">
+                                <i class="ui-bag"></i>
+                                <span>Add to Cart</span>
                             </a>
                         </div>
-                        <div id="collapseOne" class="collapse show" data-parent="#accordion" role="tabpanel" aria-labelledby="headingOne">
-                            <div class="accordion__body">
-                                Namira is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine.
+                        <div class="col">
+                            <a href="#" class="btn btn-lg btn-dark product-single__add-to-wishlist">
+                                <i class="ui-heart"></i>
+                                <span>Wishlist</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="product_meta">
+                        <ul>
+                            <li>
+                                <span class="product-code">Product Code: <span>111763</span></span>
+                            </li>
+                            <li>
+                                <span class="product-material">Material: <span>Cotton 100%</span></span>
+                            </li>
+                            <li>
+                                <span class="product-country">Country: <span>Made in Canada</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Accordion -->
+                    <div class="accordion mb-50" id="accordion">
+                        <div class="accordion__panel">
+                            <div class="accordion__heading" id="headingOne">
+                                <a data-toggle="collapse" href="#collapseOne" class="accordion__link accordion--is-open" aria-expanded="true" aria-controls="collapseOne">
+                                    Description<span class="accordion__toggle">&nbsp;</span>
+                                </a>
+                            </div>
+                            <div id="collapseOne" class="collapse show" data-parent="#accordion" role="tabpanel" aria-labelledby="headingOne">
+                                <div class="accordion__body">
+                                    Namira is a very slick and clean e-commerce template with endless possibilities. Creating an awesome clothes store with this Theme is easy than you can imagine.
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="accordion__panel">
-                        <div class="accordion__heading" id="headingTwo">
-                            <a data-toggle="collapse" href="#collapseTwo" class="accordion__link accordion--is-closed" aria-expanded="false" aria-controls="collapseTwo">
-                                Information<span class="accordion__toggle">&nbsp;</span>
-                            </a>
-                        </div>
-                        <div id="collapseTwo" class="collapse" data-parent="#accordion" role="tabpanel" aria-labelledby="headingTwo">
-                            <div class="accordion__body">
-                                <table class="table shop_attributes">
-                                    <tbody>
-                                        <tr>
-                                            <th>Size:</th>
-                                            <td>EU 41 (US 8), EU 42 (US 9), EU 43 (US 10), EU 45 (US 12)</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Colors:</th>
-                                            <td>Violet, Black, Blue</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Fabric:</th>
-                                            <td>Cotton (100%)</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <div class="accordion__panel">
+                            <div class="accordion__heading" id="headingTwo">
+                                <a data-toggle="collapse" href="#collapseTwo" class="accordion__link accordion--is-closed" aria-expanded="false" aria-controls="collapseTwo">
+                                    Information<span class="accordion__toggle">&nbsp;</span>
+                                </a>
+                            </div>
+                            <div id="collapseTwo" class="collapse" data-parent="#accordion" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="accordion__body">
+                                    <table class="table shop_attributes">
+                                        <tbody>
+                                            <tr>
+                                                <th>Size:</th>
+                                                <td>EU 41 (US 8), EU 42 (US 9), EU 43 (US 10), EU 45 (US 12)</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Colors:</th>
+                                                <td>Violet, Black, Blue</td>
+                                            </tr>
+                                            <tr>
+                                                <th>Fabric:</th>
+                                                <td>Cotton (100%)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="accordion__panel">
-                        <div class="accordion__heading" id="headingThree">
-                            <a data-toggle="collapse" href="#collapseThree" class="accordion__link accordion--is-closed" aria-expanded="false" aria-controls="collapseThree">
-                                Reviews<span class="accordion__toggle">&nbsp;</span>
-                            </a>
-                        </div>
-                        <div id="collapseThree" class="collapse" data-parent="#accordion" role="tabpanel" aria-labelledby="headingThree">
-                            <div class="accordion__body">
-                                <div class="reviews">
-                                    <ul class="reviews__list">
-                                        <li class="reviews__list-item">
-                                            <div class="reviews__body">
-                                                <div class="reviews__content">
-                                                    <p class="reviews__author"><strong>Alexander Samokhin</strong> - May 6, 2017 at 12:48 pm</p>
-                                                    <div class="rating">
-                                                        <a href="#"></a>
+                        <div class="accordion__panel">
+                            <div class="accordion__heading" id="headingThree">
+                                <a data-toggle="collapse" href="#collapseThree" class="accordion__link accordion--is-closed" aria-expanded="false" aria-controls="collapseThree">
+                                    Reviews<span class="accordion__toggle">&nbsp;</span>
+                                </a>
+                            </div>
+                            <div id="collapseThree" class="collapse" data-parent="#accordion" role="tabpanel" aria-labelledby="headingThree">
+                                <div class="accordion__body">
+                                    <div class="reviews">
+                                        <ul class="reviews__list">
+                                            @foreach (var @review in ViewBag.Reviews)
+                                            {
+                                                <li class="reviews__list-item">
+                                                    <div class="reviews__body">
+                                                        <div class="reviews__content">
+                                                            <p class="reviews__author"><strong>@review.UserName</strong> @review.CreateDate</p>
+                                                            <div class="rating">
+                                                                <a href="#"></a>
+                                                            </div>
+                                                            <p>@review.Content</p>
+                                                        </div>
                                                     </div>
-                                                    <p>This template is so awesome. I didn’t expect so many features inside. E-commerce pages are very useful, you can launch your online store in few seconds. I will rate 5 stars.</p>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                        <li class="reviews__list-item">
-                                            <div class="reviews__body">
-                                                <div class="reviews__content">
-                                                    <p class="reviews__author"><strong>Christopher Robins</strong> - May 7, 2014 at 12:48 pm</p>
-                                                    <div class="rating">
-                                                        <a href="#"></a>
-                                                    </div>
-                                                    <p>This template is so awesome. I didn’t expect so many features inside. E-commerce pages are very useful, you can launch your online store in few seconds. I will rate 5 stars.</p>
-                                                </div>
-                                            </div>
-                                        </li>
-
-                                    </ul>
-                                </div> <!--  end reviews -->
+                                                </li>
+                                            }
+                                        </ul>
+                                    </div> <!--  end reviews -->
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div> <!-- end accordion -->
+                    </div> <!-- end accordion -->
 
-            </div> <!-- end col product description -->
+                </div> <!-- end col product description -->
+            }
+
         </div> <!-- end row -->
 
     </div> <!-- end container -->

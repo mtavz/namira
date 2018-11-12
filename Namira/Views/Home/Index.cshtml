@@ -4,6 +4,27 @@
 
 }
 
+<script type="text/javascript">
+
+    $(document).ready(function () {
+ 
+        $('#add2cart').off('click').on('click', function (e) {
+            e.preventDefault();
+            var btn = $(this);
+            var id = btn.data('id');
+            $.ajax({
+                url: "/Home/AddItem",
+                data: { productID: id },
+                dataType: "json",
+                type: "POST",
+            });
+        });
+
+       
+    });
+</script>
+
+
 <!-- Slider -->
 <section class="section-slide">
     <div class="wrap-slick1">
@@ -119,6 +140,7 @@
     <div class="container">
         <!-- row -->
         <div class="row">
+
             <!-- section title -->
             <div class="col-md-12">
                 <div class="section-title">
@@ -127,32 +149,11 @@
             </div>
             <!-- section title -->
             <!-- Product Single -->
-            <div class="col-md-3 col-sm-6 col-xs-6">
-                <div class="product product-single">
-                    <div class="product-thumb">
-                        <button class="main-btn quick-view js-show-modal1"><i class="fa fa-search-plus"></i> Quick view</button>
-                        <img src="/Content/images/product-01.jpg" alt="">
-                    </div>
-                    <div class="product-body">
-                        <h3 class="product-price">$32.50</h3>
-                        <div class="product-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o empty"></i>
-                        </div>
-                        <h2 class="product-name"><a href="/ProductDetail/Index">Product Name Goes Here</a></h2>
-                        <div class="product-btns">
-                            <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-                            <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                            <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /Product Single -->
-            <!-- Product Single -->
+            @foreach (var item in ViewBag.DataItem)
+            {
+                <!-- Product Single -->
+                var url = "../../Content/images/" + item.Thumb;
+
             <div class="col-md-3 col-sm-6 col-xs-6">
                 <div class="product product-single">
                     <div class="product-thumb">
@@ -167,8 +168,31 @@
                             <li><span>00 S</span></li>
                         </ul>
 
-                        <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-                        <img src="/Content/images/product-02.jpg" alt="">
+                        <script>
+                                var QuickView = function (productID) {
+                                    //$('.js-modal1').addClass('show-modal1');
+                                    $(document).ready(function () {
+
+                                        $.ajax({
+
+                                            type: "POST",
+                                            url: "/Home/ShowDetailProduct",
+                                            data: { productID: productID },
+                                            success: function (response) {
+
+                                                $("#quick-view").html(response);
+
+                                                $('.js-modal1').addClass('show-modal1');
+                                            }
+                                        })
+                                    })
+                                }
+                        </script>
+
+                        <button class="main-btn quick-view" onclick="QuickView(@item.ProductID)"><i class="fa fa-search-plus"></i> Quick view</button>
+                        <img src=@url alt="">
+
+
                     </div>
                     <div class="product-body">
                         <h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
@@ -179,75 +203,19 @@
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star-o empty"></i>
                         </div>
-                        <h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-                        <div class="product-btns">
+                        <h2 class="product-name"><a href="/ProductDetail/Index?productID=@item.ProductID">@item.ProductName</a></h2>
+                        @*<div class="product-btns">
                             <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                             <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                            <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-                        </div>
+
+                            <button id="add2cart" class="primary-btn add-to-cart" data-id=@item.ProductID><i class="fa fa-shopping-cart"></i> Add to Cart</button>
+                        </div>*@
                     </div>
                 </div>
             </div>
-            <!-- /Product Single -->
-            <!-- Product Single -->
-            <div class="col-md-3 col-sm-6 col-xs-6">
-                <div class="product product-single">
-                    <div class="product-thumb">
-                        <div class="product-label">
-                            <span>New</span>
-                            <span class="sale">-20%</span>
-                        </div>
-                        <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-                        <img src="/Content/images/product-03.jpg" alt="">
-                    </div>
-                    <div class="product-body">
-                        <h3 class="product-price">$32.50 <del class="product-old-price">$45.00</del></h3>
-                        <div class="product-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o empty"></i>
-                        </div>
-                        <h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-                        <div class="product-btns">
-                            <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-                            <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                            <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /Product Single -->
-            <!-- Product Single -->
-            <div class="col-md-3 col-sm-6 col-xs-6">
-                <div class="product product-single">
-                    <div class="product-thumb">
-                        <div class="product-label">
-                            <span>New</span>
-                        </div>
-                        <button class="main-btn quick-view"><i class="fa fa-search-plus"></i> Quick view</button>
-                        <img src="/Content/images/product-04.jpg" alt="">
-                    </div>
-                    <div class="product-body">
-                        <h3 class="product-price">$32.50</h3>
-                        <div class="product-rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star-o empty"></i>
-                        </div>
-                        <h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-                        <div class="product-btns">
-                            <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
-                            <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
-                            <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /Product Single -->
+ <!-- /Product Single -->
+            }
+
         </div>
         <!-- /row -->
         <!-- Load more -->
@@ -660,11 +628,11 @@
                             <i class="fa fa-star-o empty"></i>
                         </div>
                         <h2 class="product-name"><a href="#">Product Name Goes Here</a></h2>
-                        <div class="product-btns">
+                        @*<div class="product-btns">
                             <button class="main-btn icon-btn"><i class="fa fa-heart"></i></button>
                             <button class="main-btn icon-btn"><i class="fa fa-exchange"></i></button>
                             <button class="primary-btn add-to-cart"><i class="fa fa-shopping-cart"></i> Add to Cart</button>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             </div>

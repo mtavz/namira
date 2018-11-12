@@ -1,0 +1,58 @@
+﻿@foreach (var item in ViewBag.productDetail)
+{
+    <div class="col-sm-6">
+        <div class="form-group">
+            <label>ID</label>
+            <input type="text" class="form-control" value="@item.ID" readonly>
+        </div>
+        <div class="form-group">
+            <label>Code</label>
+            <input type="text" class="form-control" value="@item.Code" required>
+        </div>
+        <div class="form-group">
+            <label>ProductName</label>
+            <textarea class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+            <label>Thumb</label>
+            <input type="text" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>CategoryID</label>
+            <input type="text" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Desn</label>
+            <input type="text" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Mac</label>
+            <input type="text" class="form-control" required>
+        </div>
+    </div>
+    <div class="col-sm-6">
+
+        <div class="form-group">
+            <label>Supplier</label>
+            <input type="text" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Country</label>
+            <input type="text" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Material</label>
+            <input type="text" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Status</label>
+            <input type="text" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>CreateDate</label>
+            <input type="text" class="form-control" required>
+        </div>
+    </div>
+
+
+}

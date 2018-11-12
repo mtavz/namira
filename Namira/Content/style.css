@@ -796,7 +796,7 @@ select {
   appearance: none;
   cursor: pointer;
   padding-left: 12px;
-  background-image: url(../img/dropdown.png);
+  background-image: url(dropdown.png);
   background-repeat: no-repeat;
   background-position: 100% 50%; }
 
@@ -1314,33 +1314,33 @@ http://flickity.metafizzy.co
 }
 
 button.mfp-arrow-right {
-  background-image: url(../images/icons/icon-next.png);
+  background-image: url(/Content/images/icons/icon-next.png);
   background-position: center center;
   background-repeat: no-repeat;
 }
 
 button.mfp-arrow-left {
-  background-image: url(../images/icons/icon-prev.png);
-  background-position: center center;
-  background-repeat: no-repeat;
+    background-image: url(/Content/images/icons/icon-prev.png);
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 
 button.mfp-close {
-  width: 75px !important;
-  height: 58px !important;
-  line-height: 44px;
-  position: fixed;
-  right: 0;
-  top: 0;
-  color: transparent !important;
-  background-image: url(../images/icons/icon-close.png);
-  background-position: center center;
-  background-repeat: no-repeat;
-  cursor: pointer !important;
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
-  transition: all 0.4s;
+    width: 75px !important;
+    height: 58px !important;
+    line-height: 44px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    color: transparent !important;
+    background-image: url(/Content/images/icons/icon-close.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    cursor: pointer !important;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
 }
 
 /* overlay at start */

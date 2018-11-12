@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Models.EF;
+using Models.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,20 @@ namespace Namira.Controllers
 {
     public class ProductDetailController : Controller
     {
-        // GET: ProductDetail
-        public ActionResult Index()
+        NamiraDbContext context = new NamiraDbContext();
+
+        public ActionResult Index(float productID)
         {
+            var iplProduct = new ProductModel();
+            var data = iplProduct.getDetail(productID).Take(1);
+            ViewBag.DataItem = data;
+
+            var iplReview = new ReviewsModel();
+            var reviews = iplReview.getReview(productID);
+            ViewBag.Reviews = reviews;
+
             return View();
         }
+
     }
 }
